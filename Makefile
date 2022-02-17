@@ -2,26 +2,31 @@
 ## EPITECH PROJECT, 2022
 ## Makefile
 ## File description:
-## 
+##
 ##
 
 
 NAME	=	libasm.so
 
-SRC	= 	src/main.asm\
-	
+SRC	= 	src/strncmp.asm\
+		src/strcmp.asm\
+		src/memcpy.asm\
+		src/strlen.asm\
+		src/strchr.asm\
+		src/memset.asm
+
 OBJ = $(SRC:.asm=.o)
 
-all: $(NAME)
-
-CFLAGS = -Iinclude -fPIC -shared
-CPPFLAGS = 
+CFLAGS = -fPIC -shared
+CPPFLAGS =
 ASMFLAGS = -f elf64
+
+all: $(NAME)
 
 $(NAME): $(OBJ)
 		ld $(CFLAGS) -o $(NAME) $(OBJ)
 
-$(OBJ): %.o: %.asm
+%.o: %.asm
 	nasm $(ASMFLAGS) $< -o $@
 
 clean:
