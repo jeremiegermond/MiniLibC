@@ -8,12 +8,14 @@
 
 NAME	=	libasm.so
 
-SRC	= 	src/strncmp.asm\
+SRC	= 	src/memmove.asm\
+		src/strncmp.asm\
 		src/strcmp.asm\
 		src/memcpy.asm\
 		src/strlen.asm\
 		src/strchr.asm\
-		src/memset.asm
+		src/memset.asm\
+		src/strrchr.asm\
 
 OBJ = $(SRC:.asm=.o)
 
