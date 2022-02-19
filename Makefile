@@ -8,7 +8,8 @@
 
 NAME	=	libasm.so
 
-SRC	= 	src/memmove.asm\
+SRC	= 	src/strcspn.asm\
+		src/memmove.asm\
 		src/strncmp.asm\
 		src/strcmp.asm\
 		src/memcpy.asm\
