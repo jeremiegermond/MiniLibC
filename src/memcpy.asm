@@ -11,7 +11,7 @@ memcpy:
 
 loop:
     cmp rcx, rdx
-    jae end
+    je end
     mov r8b, byte[rsi + rcx]
     mov byte[rdi + rcx], r8b
     inc rcx
