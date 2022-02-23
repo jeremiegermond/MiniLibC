@@ -3,15 +3,11 @@ global memmove
 section .text
 
 memmove:
-    cmp rdi, 0
-    je end
-    cmp rsi, 0
-    je end
     xor rcx, rcx
 
 loopleft:
     cmp rcx, rdx
-    jae end
+    je end
     mov r8b, byte[rsi + rcx]
     mov byte[rdi + rcx], r8b
     jmp loopleft
