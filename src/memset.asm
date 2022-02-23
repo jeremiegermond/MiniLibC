@@ -3,8 +3,6 @@ global memset
 section .text
 
 memset:
-    cmp rdi, 0
-    je end
     xor rcx, rcx
 
 loop:
