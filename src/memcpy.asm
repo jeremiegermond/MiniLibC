@@ -3,10 +3,6 @@ global memcpy
 section .text
 
 memcpy:
-    cmp rdi, 0
-    je end
-    cmp rsi, 0
-    je end
     xor rcx, rcx
 
 loop:
