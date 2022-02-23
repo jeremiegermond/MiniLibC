@@ -1,7 +1,9 @@
+global index
 global strchr
 
 section .text
 
+index:
 strchr:
     cmp rdi, 0
     je end_null

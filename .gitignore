@@ -1,7 +1,6 @@
 main.c
 test
 src/*.o
-src/strrchr.asm
 vgcore.*
 a.out
 libasm.so
