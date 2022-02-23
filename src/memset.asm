@@ -9,7 +9,6 @@ memset:
 
 loop:
     cmp rcx, rdx
-    jae end
     mov byte[rcx + rdi], sil
     inc rcx
     jmp loop
