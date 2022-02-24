@@ -3,16 +3,16 @@ section .text
 
 strstr:
 	xor rcx, rcx
-	mov al, [rdi]
-	mov al, [rsi]
+	mov al, byte[rdi]
+	mov al, byte[rsi]
 
 inc_rdi:
 	cmp al, 0
-	je fail
+	je endnull
 	inc rdi
 	
 loop:
-	mov al, [rdi + rcx]
+	mov al, byte[rdi + rcx]
 	cmp byte[rsi + rcx], 0
 	je end
 	cmp al, byte[rsi + rcx]
@@ -24,5 +24,5 @@ end:
 	mov rax, rdi
 	ret
 
-fail:
+endnull:
 	mov rax, 0
