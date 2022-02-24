@@ -4,29 +4,25 @@ section .text
 
 strncmp:
     xor rax, rax
-    jmp loop
+    xor rcx, rcx
+    xor r8, r8
 
 loop:
-    cmp rdx, 0
+    mov r8b, byte[rsi + rcx]
+    cmp rcx, rdx
+    je endnull
+    cmp r8b, 0
     je end
-    mov al, byte[rdi]
-    mov bl, byte[rsi]
-    cmp al, 0
-    je end
-    cmp bl, 0
-    je end
-    cmp al, bl
+    cmp byte[rdi + rcx], r8b
     jne end
-    inc rdi
-    inc rsi
-    inc rdx
+    inc rcx
     jmp loop
 
 end:
-    sub al, bl
-    movsx rax, al
+    sub byte[rdi + rcx], r8b
+    movsx rax, byte[rdi + rcx]
     ret
-    
+
 endnull:
     mov rax, 0
     ret
