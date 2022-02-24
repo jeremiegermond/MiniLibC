@@ -4,10 +4,12 @@ section .text
 
 memset:
     xor rcx, rcx
+    mov rax, rdi
 
 loop:
     cmp rcx, rdx
-    mov byte[rcx + rdi], sil
+    je end
+    mov byte[rax + rcx], sil
     inc rcx
     jmp loop
 
