@@ -3,31 +3,32 @@ global strpbrk
 section .text
 
 strpbrk:
-	mov rdx, rdi
+	xor rax, rax
+	xor rcx, rcx
 
 loop:
-	cmp byte[rdx], 0
-	je putnull
-	mov r8, rsi
+	mov al, byte[rdi + rcx]
+	cmp al, 0
+	je endnull
+	inc rcx
 
-second_loop:
-	cmp byte[r8], 0
-	je succes
-	mov al, [rdx]
-	cmp [r8], al
-	je same_charac
-	inc r8
-	jmp second_loop
+search:
+	xor rbx, rbx
 
-succes:
-	inc rdx
-	jmp loop
+next_char:
+	cmp byte[rsi + rbx], 0
+	je loop
+	cmp al, byte[rsi + rbx]
+	je found
+	inc rbx
+	jmp next_char
 
-putnull:
+found:
+	dec rcx
+	add rdi, rcx
+	mov rax, rdi
+	ret
+
+endnull:
 	mov rax, 0
-
-same_charac:
-	mov rax, rdx
-
-end:
 	ret
