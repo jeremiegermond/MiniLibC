@@ -4,10 +4,10 @@ section .text
 
 strcasecmp:
 	mov r8b, byte[rdi]
-	cmp r8b, 65
-	jl caps
-	cmp r8b, 90
-	jl to_lower
+	cmp r8b, "A"
+	jb caps
+	cmp r8b, "Z"
+	jb to_lower
     
 to_lower:
 	add r8b, 32
@@ -18,10 +18,10 @@ to_lower2:
 	jmp compare
 
 caps:
-	cmp byte[rsi], 65
-	jl compare
-	cmp byte[rsi], 90
-	jl to_lower2
+	cmp byte[rsi], "A"
+	jb compare
+	cmp byte[rsi], "Z"
+	jb to_lower2
 
 compare:
 	cmp r8b, byte[rsi]
