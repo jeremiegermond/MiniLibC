@@ -4,11 +4,10 @@ section .text
 strstr:
 	xor rcx, rcx
 	mov al, byte[rdi]
-	mov al, byte[rsi]
-
-inc_rdi:
 	cmp al, 0
 	je endnull
+
+inc_rdi:
 	inc rdi
 	
 loop:
